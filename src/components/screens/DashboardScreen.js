@@ -32,10 +32,10 @@ const DashboardScreen = ({ setTitle }) => {
       <div className="col mb-4">
         <SquareInfoCard
           key={index}
-          name={JSON.parse(sessionStorage.getItem("dashboard")).cnm}
-          bloodPressure={JSON.parse(sessionStorage.getItem("dashboard")).tvs}
-          oxygen={JSON.parse(sessionStorage.getItem("dashboard")).trs}
-          temperature={JSON.parse(sessionStorage.getItem("dashboard")).tmcs}
+          name={JSON?.parse(sessionStorage.getItem("dashboard")).cnm}
+          bloodPressure={JSON?.parse(sessionStorage.getItem("dashboard")).tvs}
+          oxygen={JSON?.parse(sessionStorage.getItem("dashboard")).trs}
+          temperature={JSON?.parse(sessionStorage.getItem("dashboard")).tmcs}
           heathStatusIsOkay={
             JSON.parse(sessionStorage.getItem("dashboard")).amcs
           }
