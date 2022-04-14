@@ -5,7 +5,9 @@ import CallResidentModal from "../commons/Modal/CallResidentModal";
 import AppNavbar from "../commons/Navbar/AppNavbar";
 import LeftSidebar from "../commons/Sidebar/LeftSidebar";
 import RightSidebar from "../commons/Sidebar/RightSidebar";
-import axios from "axios";
+import { login_url } from "../../constants/app_urls";
+import { userLogin } from "../../api/login_api";
+
 const BaseLayout = ({ children, title = "" }) => {
   const [state, setState] = React.useState("Butterhill");
   const [show, setShow] = React.useState(false);
@@ -20,7 +22,7 @@ const BaseLayout = ({ children, title = "" }) => {
   GetDashboard_data();
 
   async function validateUserlogin(
-    url = "https://staging.miicube.info/user/login",
+    url = login_url,
     data = {
       criteria: {
         nu: sessionStorage.getItem("username"),
@@ -29,26 +31,12 @@ const BaseLayout = ({ children, title = "" }) => {
       },
     }
   ) {
-
-    const res = await axios
-      .post(url, data, {
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-          authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      })
-      .then((json) => {
-        console.log(json.data.Data,"json")
-        sessionStorage.setItem("user", JSON.stringify(json.data.Data));
-
-        console.log(
-          "getting data ",
-          JSON.parse(sessionStorage.getItem("user"))
-        );
-
-        if (json.data.Data["pyte"] == "CH") {
-        }
-      });
+    const res = userLogin(data).then((json) => {
+      console.log(json.data.Data, "json");
+      sessionStorage.setItem("user", JSON.stringify(json.data.Data));
+      if (json.data.Data["pyte"] == "CH") {
+      }
+    });
   }
 
   var dropdown = null;

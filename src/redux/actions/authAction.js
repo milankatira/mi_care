@@ -1,5 +1,7 @@
 import axios from "axios";
+import { userloginAuthenticate } from "../../api/login_api";
 
+// console.log()
 const { default: authConstant } = require("../constants/authConstant");
 
 export const authenticateAction = (data) => {
@@ -34,25 +36,25 @@ export const loginAction = (data) => {
 };
 
 export const LoginUser = (packet) => {
-    console.log("packet",packet)
+  console.log("packet", packet);
   return (dispatch) => {
-   axios.post("https://staging.miicube.info/user/loginAunthenticate", packet).then((res) => {
-     console.log("hi from the redux folder",res.data);
-     if( res.data.ErrorCode === 4001)
-     {
-          sessionStorage.setItem("ID","username @ password wrong")
+    axios
+      .post("https://staging.miicube.info/user/loginAunthenticate", packet)
+      .then((res) => {
+        console.log("hi from the redux folder", res.data);
+        if (res.data.ErrorCode === 4001) {
+          sessionStorage.setItem("ID", "username @ password wrong");
           window.location.assign("/login");
-     }
-     if(res.data.ErrorCode === 0){
-       sessionStorage.setItem("login","login");
-       sessionStorage.setItem("health","true");
-      
-      dispatch(loginAction(res));
-      
-      window.location.assign("/dashboard");
-     }
-    //   dispatch(loginAction(res));
-    });
+        }
+        if (res.data.ErrorCode === 0) {
+          sessionStorage.setItem("login", "login");
+          sessionStorage.setItem("health", "true");
+
+          dispatch(loginAction(res));
+
+          window.location.assign("/dashboard");
+        }
+        //   dispatch(loginAction(res));
+      });
   };
 };
-

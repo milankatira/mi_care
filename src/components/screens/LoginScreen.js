@@ -11,32 +11,26 @@ function LoginScreen() {
   const [password, setPassword] = React.useState("");
   const dispatch = useDispatch();
 
-  window.addEventListener('load', function() {
-    console.log('All assets are loaded')
+  window.addEventListener("load", function () {
+    console.log("All assets are loaded");
 
-  if(sessionStorage.getItem("ID")){
+    if (sessionStorage.getItem("ID")) {
+      document.getElementById("target").style.display = "block";
+    }
+    sessionStorage.removeItem("ID");
+  });
 
-    document.getElementById("target").style.display = "block";
-    
-  }
-  sessionStorage.removeItem("ID")
-})
-  
   function handleSubmit() {
     console.log(userName, password);
-sessionStorage.setItem("username",userName);
-sessionStorage.setItem('password',password);
+    sessionStorage.setItem("username", userName);
+    sessionStorage.setItem("password", password);
     const packet = {
-      "criteria": {
-        "nu": userName,
-        "wp": password,
-      }
+      criteria: {
+        nu: userName,
+        wp: password,
+      },
     };
     dispatch(LoginUser(packet));
-
-   
-
-   
   }
 
   return (
@@ -57,7 +51,14 @@ sessionStorage.setItem('password',password);
             <div className="form">
               <h3>Login</h3>
 
-              <p id="target" style={{"display":"none","font-size":"13px"}} class="bg-warning text-danger">The username or password that you entered is incorrect.</p><br />
+              <p
+                id="target"
+                style={{ display: "none", "font-size": "13px" }}
+                class="bg-warning text-danger"
+              >
+                The username or password that you entered is incorrect.
+              </p>
+              <br />
               <form className="register-form">
                 <input type="text" />
                 <input type="password" placeholder="password" />
