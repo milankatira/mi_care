@@ -1,0 +1,483 @@
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+*:focus,
+*:hover {
+	outline: none;
+}
+
+html {
+	scrollbar-width: thin;
+	scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    height: 12px;
+    width: .5rem;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #aaaaaa;
+    -webkit-border-radius: 1rem;
+}
+
+html::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+body {
+	font-family: $fonts;
+	font-weight: 400;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	box-sizing: border-box;
+	min-width: 320px;
+	overflow-x: hidden;
+	background-color: $base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $headingFont;
+	color: $notSoBlack;
+	font-weight: 600;
+	padding: 0;
+}
+
+p {
+	color: $notSoBlack;
+    font-family: $fonts;
+    font-size: .72rem;
+    margin: 0;
+}
+
+p,
+a,
+span,
+small {
+	font-family: $fonts;
+	line-height: 1.5;
+}
+
+p,
+a,
+span,
+small,
+button,
+input,
+textarea,
+label {
+	padding: 0;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	font-weight: 400;
+	@include transit(0.25s);
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+a:hover {
+	color: $primary;
+}
+button {
+
+	font-family: $fonts;
+	font-weight: 500;
+	font-size: 0.875rem;
+	cursor: pointer;
+	background: none;
+	border: none;
+	@include transit(0.25s);
+
+	&:disabled, &.disabled {
+		opacity: 0.5;
+	
+	}
+
+	&:focus,
+	&:hover {
+		outline: none;
+	}
+}
+
+a,
+button,
+input,
+textarea {
+	@include transit(0.3s);
+}
+
+input,
+textarea {
+	border: none;
+
+	@include hoverFocus {
+		outline: none;
+	}
+}
+
+ul,
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+select {
+	background-color: #fff;
+}
+
+// @include setChildCmnt("custom classes starts");
+
+@each $className,
+$clr in $colors {
+	@if (not str-index($string: $className, $substring: "grad-")) {
+		#{".text-" + $className} {
+			color: $clr !important;
+		}
+	}
+}
+
+@each $className,
+$clr in $colors {
+	#{".bg-" + $className} {
+		background-color: $clr !important;
+	}
+
+
+	#{"a.bg-" + $className} {
+		&:hover, &:focus {
+			background-color: $clr !important;
+		}
+	}
+
+
+	#{".btn-" + $className} {
+		background: $clr !important;
+		border-color: $clr !important;
+
+		@if (lightness($clr) <=60%) {
+			color: $white;
+
+			&:hover {
+				background-color: lighten($color: $clr,
+						$amount: 10%) !important;
+			}
+		}
+
+		@else {
+			color: $black;
+
+			&:hover {
+				background-color: darken($color: $clr, $amount: 10%) !important;
+			}
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:disabled,
+		&.disabled {
+			opacity: 0.5;
+			background-color: $clr !important;
+			cursor: not-allowed;
+			color: $white !important;
+
+			&:hover {
+				background-color: $clr !important;
+			}
+		}
+	}
+
+
+	#{".btn-outline-" + $className} {
+		background: $trans !important;
+		color: $clr;
+		border-color: $clr !important;
+
+		@if (lightness($clr) <=60%) {
+
+			&:hover {
+				color: $white;
+				background-color: lighten($color: $clr,
+						$amount: 10%) !important;
+			}
+		}
+
+		@else {
+			color: $black;
+
+			&:hover {
+				background-color: darken($color: $clr, $amount: 10%) !important;
+			}
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+		
+		&:disabled,
+		&.disabled {
+			opacity: 0.5;
+			background-color: $clr !important;
+			cursor: not-allowed;
+			color: $white !important;
+
+			&:hover {
+				background-color: $clr !important;
+			}
+		}
+	}
+
+
+	#{".link-" + $className} {
+		color: $clr !important;
+
+		@if (lightness($clr) < 50%) {
+			&:hover {
+				color: lighten($color: $clr, $amount: 10%) !important;
+			}
+		}
+
+		@else {
+			&:hover {
+				color: darken($color: $clr, $amount: 10%) !important;
+			}
+		}
+	}
+
+	#{".link-hover-" + $className} {
+		color: inherit;
+
+		&:hover,
+		&:focus {
+			color: $clr !important;
+		}
+	}
+
+	#{".button-border-" + $className} {
+		border-color: $clr !important;
+		color: $clr;
+
+		&:hover {
+			background-color: $clr;
+			// background-color: rgba($clr,1);
+			color: $white;
+		}
+
+		&:disabled,
+		&.disabled {
+			opacity: 0.5;
+			background-color: $clr !important;
+			cursor: not-allowed;
+			color: $white !important;
+
+			&:hover {
+				background-color: $clr !important;
+			}
+		}
+	}
+
+	#{".input-border-" + $className} {
+
+		// border-color: $clr !important;
+		&:focus {
+			border-color: $clr !important;
+			box-shadow: 0 0 0.2rem 0.2rem rgba($clr, 0.25);
+			// box-shadow: 0px 0px 3px -2px lighten($color: $clr, $amount: 10%);
+			// background-color: rgba($clr,1);
+		}
+
+		&:disabled,
+		&[readonly],
+		&.disabled {
+			background-color: rgba($clr, 0.1) !important;
+		}
+	}
+
+	#{".input-" + $className} {
+		background-color: $clr !important;
+
+		&:focus {
+			background-color: lighten($color: $clr, $amount: 10%) !important;
+			// box-shadow: 0px 0px 3px -2px lighten($color: $clr, $amount: 10%);
+			// background-color: rgba($clr,1);
+		}
+
+		@if (lightness($clr) <=60%) {
+			color: $white;
+
+			&:focus {
+				background-color: lighten($color: $clr,
+						$amount: 10%) !important;
+			}
+
+			&::placeholder {
+				color: rgba(#fff, lightness($clr) * 1.4);
+			}
+		}
+
+		@else {
+			color: $black;
+
+			&:focus {
+				background-color: lighten($color: $clr,
+						$amount: 10%) !important;
+			}
+
+			&::placeholder {
+				color: rgba(#000, 0.6);
+			}
+		}
+
+		&:disabled,
+		&[readonly],
+		&.disabled {
+			background-color: rgba($clr, 0.05) !important;
+		}
+	}
+
+	#{".border-" + $className} {
+		border-color: $clr !important;
+	}
+}
+
+@each $bpName in $breakpoints-class {
+	@include classForBP($bpName) {
+
+		@each $num,
+		$val in $spacers {
+			#{".p" + $bpName + "-" + $num} {
+				padding: #{$val + " !important"};
+			}
+		} 
+	}
+}
+
+.py {
+	&-section {
+		padding: 4.5rem 0;
+	}
+}
+
+.transit {
+	transition: all $timing;
+}
+
+.form-control {
+	border: none;
+	&:focus {
+		outline: none;
+		box-shadow: none !important;
+	}
+}
+
+hr {
+	border-color: $lightGrey;
+}
+
+.icon path{
+	fill: currentColor;
+}
+
+.text-sm {
+	font-size: 0.7rem;
+}
+
+.text-md {
+	font-size: 0.85rem;
+}
+
+.vl {
+	border-left: 0.0625rem solid $grey;
+	height: 1.2rem;
+	margin: auto;
+}
+
+.container-fluid {
+	margin: 0;
+}
+
+.btn {
+	box-shadow: none !important;
+}
+
+.carehome-dropdown {
+	.dropdown-toggle {
+		background-color: $trans !important;
+		border: none !important;
+		color: #aaa !important;
+		font-family: $headingFont;
+		font-weight: 500;
+		
+		img {
+			vertical-align: middle;
+		}
+	}
+	.dropdown-item {
+		font-size: .8rem;
+	}
+	.dropdown-item:focus {
+		background-color: $primary;
+	}
+}
+.carehome-dropdown{
+	.dropdown-toggle:hover {
+		background-color: $trans !important;
+		border: none !important;
+		color: $black !important;
+	}
+}
+
+.carehome-dropdown {
+	.dropdown-toggle::after {
+		content: none;
+	}
+}
+
+.doughnut-label {
+	position: absolute;
+	bottom: 10.5rem;
+	left: 7rem;
+	margin: 0;
+}
+
+.card-heading {
+	h6 {
+		font-size: .85rem;
+	}
+	img {
+		width: .9rem;
+		height: .9rem;
+		vertical-align: baseline;
+	}
+	button {
+		font-size: .8rem;
+	}
+}
+
+.modal-open[style] {
+	padding-right: 0px !important;
+}
+
+.vital-card-area-col {
+	padding-left: 0;
+	padding-right: 0;
+}

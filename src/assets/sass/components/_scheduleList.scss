@@ -1,0 +1,19 @@
+.schedule-list {
+    &-item {
+
+        &-separator {
+            border: 1px dotted $wash;
+            margin: .35rem 0;
+        }
+    }
+    &-day {
+        font-size: .9rem;
+        color: $grey;
+        font-weight: 600;
+    }
+    &-date {
+        font-size: 1.2rem;
+        color: $primary;
+        font-weight: 600;
+    } 
+}

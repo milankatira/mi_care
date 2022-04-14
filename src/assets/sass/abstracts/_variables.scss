@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+
+$fonts: "Open Sans",
+sans-serif;
+
+$headingFont: 'Poppins';
+$secondaryFont: "Roboto",
+sans-serif;
+
+$base: #F6F6F6;
+$primary: #49DEB8;
+$secondary: #F0967D;
+$midtone: #CFF7EC;
+
+$info: #00b5e2;
+$danger: #EB5757;
+$success: #27AE60; 
+$black: #000000;
+$notSoBlack: #2b2b2b;
+$white: #fff;
+$dark: #19191d;
+
+$baseMidtone: #707070;
+$textMidtone: #C29BE1;
+$wash: #EAEAEA;
+$grey: #777777;
+$lightGrey: #f6f6f6;
+$midWhite: #dddddd;
+$trans: transparent;
+
+		
+$colors: (
+	"base": $base,
+	"primary": $primary,
+	"secondary": $secondary,
+	"info": $info,
+	"danger": $danger,
+	"success": $success,
+	"black": $black,
+	"white": $white,
+	"dark": $dark,
+	"lightGrey": $lightGrey
+);
+
+$breakpoints-class: ("", "-xxs", "-xs", "-sm", "-md", "-lg", "-xl");
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge((0: 0,
+		1: ($spacer * 0.25),
+		2: ($spacer * 0.5),
+		3: $spacer,
+		4: ($spacer * 1.5),
+		5: ($spacer * 3)),
+	$spacers);
+$imgPath: "./images/";
+
+$timing : 200ms;
+$inputFieldHeight: 3rem;
+$inputFieldPadding: 0 1.5rem;

@@ -1,0 +1,22 @@
+.resident-activeness-col {
+    &-first-row, &-second-row {
+        display: flex;
+        margin-bottom: 1.5rem;
+        p {
+            font-size: .71rem;
+            line-height: 2;
+            font-weight: 700;
+        }
+        .miniline {
+            width: 5rem;
+        }
+    }
+    &-label {
+        width: 4rem;
+        font-weight: 500 !important;
+    }
+    .miniline {
+        margin-right: 0.5rem;
+        width: 4rem;
+    }
+}

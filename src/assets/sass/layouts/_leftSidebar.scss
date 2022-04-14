@@ -1,0 +1,118 @@
+.left-sidebar {
+    height: 100vh;
+    border-radius: 1.5625rem 0 0 1.5625rem;
+    box-shadow: -0.5rem 0 0.625rem 0 $midWhite;
+
+    &-menu {
+        background-color: $white;
+        display: flex;
+        justify-content: space-between;
+        // align-items: center;
+        flex-direction: column;
+        height: 100%;
+        border-radius: 1.5625rem 0 0 0;
+    }
+}
+
+.call-text {
+    font-family: $headingFont;
+    font-size: x-large;
+}
+
+.modal-size {
+    width: 55rem !important;
+}
+
+.modal-content {
+    height: 20rem !important;
+    border-radius: 1rem;
+}
+
+.wave {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    .dot {
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        margin-right: 3px;
+        background: $primary;
+        animation: wave 1.3s linear infinite;
+        animation-delay: 2s;
+
+        &:nth-child(2) {
+            animation-delay: -1.1s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: -0.9s;
+        }
+        
+        &:nth-child(4) {
+            animation-delay: -1.1s;
+        }
+        
+        &:nth-child(5) {
+            animation-delay: -0.9s;
+        }
+        
+        &:nth-child(6) {
+            animation-delay: -1.3s;
+        }
+        
+        &:nth-child(7) {
+            animation-delay: -1.1s;
+        }
+    }
+}
+
+@keyframes wave {
+    0%,
+    60%,
+    100% {
+        transform: initial;
+    }
+    30% {
+        transform: scaleY(2.5);
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.call-resident-btn {
+    width: 3.75rem;
+    height: 3.75rem;
+    transition: all .3s ease-in-out;
+    border-radius: 50%;
+    border: none;
+    padding: 0;    
+}
+.call-resident-btn.end-call:hover {
+    cursor: pointer;
+    fill: $danger;
+    transform: rotate(135deg);
+    box-shadow: 0 0 0.625rem 0 $grey;
+    
+    circle {
+        stroke: #AF4E4B;
+    }
+    .receiver {
+        fill: $white;
+        stroke: #AF4E4B;
+        // transition: all .3s ease-in-out;
+    }
+    .signal {
+        display: none;
+        // transition: all .3s ease-in-out;
+    }
+    transition: all .3s ease-in-out;
+}
+
+.call-resident-btn.end-call:active {
+    box-shadow: none;
+    transition: none;
+}

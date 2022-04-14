@@ -1,0 +1,29 @@
+
+.btn-settings{
+    height: 34px;
+    background: #cff7ec;
+    width: 95px;
+    border: 1px solid #ddd;
+    color: #f0957d;
+    font-weight: 700;
+}
+
+.btn-st{
+    height: 34px;
+    background: #eee;
+    width: 95px;
+    border: 1px solid #ddd;
+    color: #6f777f;
+    font-weight: 700;
+   /* margin: 5px;*/
+    border-radius: 5px;
+}
+
+.metricTitle {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    font-size: 16px;
+    padding-left: 10px;
+    font-weight: 600;
+}

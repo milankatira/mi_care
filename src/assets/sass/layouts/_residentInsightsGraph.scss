@@ -1,0 +1,14 @@
+.resident-insights-area {
+    width: 100%;
+    padding-top: calc((145 / 410) * 100%);
+    position: relative;
+    overflow: hidden;
+
+    &-graph {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 1rem;
+        left: 1rem;
+    }
+}

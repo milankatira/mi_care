@@ -1,0 +1,12 @@
+const USER_AUTHENTICATE = "USER_AUTHENTICATE";
+const USER_REGISTER = "USER_REGISTER";
+const USER_LOGOUT = "USER_LOGOUT";
+const USER_LOGIN="USER_LOGIN"
+const authConstant = {
+	USER_AUTHENTICATE,
+	USER_REGISTER,
+	USER_LOGOUT,
+	USER_LOGIN
+};
+
+export default authConstant;

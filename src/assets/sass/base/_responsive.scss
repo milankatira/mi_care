@@ -1,0 +1,240 @@
+@media only screen and (max-width: 359.98px) {
+    header {
+        .row:first-child {
+            h6, h3 {
+                font-size: 0.65rem;
+            }
+            .dropdown {
+                .dropdown-toggle {
+                    font-size: 0.55rem;
+                }
+            }
+        }
+        .row:last-child {
+            div {
+                div {
+                    p {
+                        font-size: .65rem;
+                    }
+                    button {
+                        padding: 0;
+                        height: 1.95rem;
+                        img {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                        .notification-total {
+                            font-size: .45rem;
+                            width: .75rem;
+                            height: .75rem;
+                            right: 3.6rem;
+                            top: 1rem;
+                            padding: 0;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+            }
+            .profile-img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+    .resident-insights{
+        &-header{
+            div:last-child {
+                padding: 0;
+                margin-top: .3rem;
+            }
+        }
+    }
+    .resident-activeness-graph-controller {
+        .time-buttons {
+            justify-content: flex-end;
+            button {
+                font-size: .75rem;
+            }
+            padding-right: 0;
+        }
+        .graph-zoom-controller {
+            padding-left: 0;
+            margin-top: 1rem;
+            justify-content: center !important;
+
+            input[type=range] {
+                width: 10rem;
+            }
+        }
+    }
+        
+    .vital-card-area {
+        &-col {
+            padding-left: 0;
+        }
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media only screen and (min-width: 360px) and (max-width: 575.98px) {
+    .resident-insights{
+        &-header{
+            div:last-child {
+                padding: 0;
+                margin-top: .3rem;
+            }
+        }
+    }
+    .resident-activeness-graph-controller {
+        .time-buttons {
+            justify-content: flex-end;
+            button {
+                font-size: .75rem;
+            }
+            padding-right: 0;
+        }
+        .graph-zoom-controller {
+            padding-left: 0;
+            margin-top: 1rem;
+            justify-content: center !important;
+
+            input[type=range] {
+                width: 15rem;
+            }
+        }
+    }
+
+            
+    .vital-card-area {
+        &-col {
+            padding-left: 0;
+        }
+    }
+
+    // .vital-card:nth-child(4) {
+    //     padding-left: 0;
+    // }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+
+            
+    .vital-card-area {
+        &-col {
+            padding-left: 0;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+    header {
+        .row:first-child {
+            h6, h3 {
+                font-size: 0.85rem;
+            }
+            .dropdown {
+                .dropdown-toggle {
+                    font-size: 0.85rem;
+                }
+            }
+        }
+        .row:last-child {
+            div {
+                div {
+                    p {
+                        font-size: .7rem;
+                    }
+                    button {
+                        padding: 0;
+                        height: 1.95rem;
+                        img {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                        .notification-total {
+                            font-size: .45rem;
+                            width: .75rem;
+                            height: .75rem;
+                            right: 3.6rem;
+                            top: 1rem;
+                            padding: 0;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+            }
+            .profile-img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+
+    .vital-card {
+        height: 6rem;
+
+        &-info {
+
+            &-left {
+                p {
+                    font-size: .65rem;
+                }
+                &-value {
+                    h4 {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            &-right {
+                img {
+                    width: 2.75rem;
+                    height: 2.75rem;
+                }
+            }
+        }
+    }
+
+    .resident-info-card {
+        &-body {
+            &-status {
+                right: 3rem;
+                bottom: 5rem;
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) and (max-width: 1365.98px) {
+    
+    .vital-card-area-col {
+        padding-left: .7rem !important;
+    }
+
+}
+
+@media only screen and (min-width: 1366px) and (max-width: 1919.98px) {
+
+    .vital-card-area-col {
+        padding-left: .75rem !important;
+    }
+
+    // .vital-card-info-right {
+    //     img {
+    //         width: 3rem;
+    //         height: auto;
+    //     }
+    // }
+
+}
+
+@media only screen and (min-width: 1920px) {
+
+}
